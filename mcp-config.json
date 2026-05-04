@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "transcoder-mcp": {
+      "command": "python",
+      "args": [
+        "mcp-server/server.py"
+      ],
+      "env": {
+        "PYTHONPATH": ".",
+        "TRANSCODER_ROOT": "."
+      },
+      "description": "TransCoder MCP Server - Gestión de proyectos, memoria y templates"
+    }
+  }
+}

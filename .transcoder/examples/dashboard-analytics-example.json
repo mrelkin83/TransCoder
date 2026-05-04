@@ -1,0 +1,143 @@
+{
+  "project_name": "dashboard-analytics",
+  "type": "web",
+  "stack": [
+    "Next.js 14",
+    "TypeScript",
+    "Tailwind CSS",
+    "Chart.js",
+    "React Query"
+  ],
+  "feature_principal": "Dashboard analytics con gráficas interactivas en tiempo real",
+  "created_at": "2026-05-04T10:00:00Z",
+  "last_updated": "2026-05-04T14:30:00Z",
+  "current_phase": "development",
+  "steps": [
+    {
+      "id": 1,
+      "name": "Setup",
+      "description": "Inicializar Next.js 14 con TypeScript, Tailwind, y dependencias",
+      "status": "completed",
+      "prompt_tokens": 152,
+      "response_tokens": 420,
+      "completed_at": "2026-05-04T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Layout Base",
+      "description": "Crear layout principal con sidebar, header y navegación",
+      "status": "completed",
+      "prompt_tokens": 234,
+      "response_tokens": 580,
+      "completed_at": "2026-05-04T11:15:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Dashboard Core",
+      "description": "Componente Dashboard con grid de gráficas (línea, barra, dona)",
+      "status": "completed",
+      "prompt_tokens": 312,
+      "response_tokens": 890,
+      "completed_at": "2026-05-04T12:45:00Z"
+    },
+    {
+      "id": 4,
+      "name": "API Integration",
+      "description": "Conectar con API mock, React Query para fetching de datos",
+      "status": "in_progress",
+      "prompt_tokens": 280,
+      "started_at": "2026-05-04T13:00:00Z"
+    },
+    {
+      "id": 5,
+      "name": "Responsive Design",
+      "description": "Optimizar UI para mobile y tablet con Tailwind breakpoints",
+      "status": "pending",
+      "prompt_tokens": 0,
+      "response_tokens": 0
+    },
+    {
+      "id": 6,
+      "name": "Testing",
+      "description": "Tests unitarios con Vitest y tests E2E con Playwright",
+      "status": "pending",
+      "prompt_tokens": 0,
+      "response_tokens": 0
+    }
+  ],
+  "steps_completed": [1, 2, 3],
+  "next_step_index": 4,
+  "context_files": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/components/Dashboard.tsx",
+    "src/components/Sidebar.tsx",
+    "src/components/charts/LineChart.tsx",
+    "src/lib/api.ts",
+    "tailwind.config.js"
+  ],
+  "preferences": {
+    "auto_execute": false,
+    "show_token_estimates": true,
+    "compress_prompts": true,
+    "language": "es",
+    "test_framework": "vitest",
+    "styling_approach": "tailwind",
+    "state_management": "react-query"
+  },
+  "token_savings": {
+    "total_saved": 4280,
+    "percentage_vs_manual": 67,
+    "breakdown": {
+      "step_1": {
+        "actual": 572,
+        "estimated_manual": 1650,
+        "saved": 1078
+      },
+      "step_2": {
+        "actual": 814,
+        "estimated_manual": 2100,
+        "saved": 1286
+      },
+      "step_3": {
+        "actual": 1202,
+        "estimated_manual": 3118,
+        "saved": 1916
+      }
+    }
+  },
+  "decisions": [
+    {
+      "question": "¿Usar Server Components o Client Components?",
+      "answer": "Server Components por defecto, Client solo para interactividad (charts)",
+      "timestamp": "2026-05-04T10:20:00Z",
+      "reasoning": "Mejor performance y SEO"
+    },
+    {
+      "question": "¿Librería de gráficas?",
+      "answer": "Chart.js con react-chartjs-2",
+      "timestamp": "2026-05-04T11:00:00Z",
+      "reasoning": "Más ligera que Recharts, buena documentación"
+    },
+    {
+      "question": "¿State management?",
+      "answer": "React Query para server state, useState para UI local",
+      "timestamp": "2026-05-04T12:00:00Z",
+      "reasoning": "No necesitamos Redux para este proyecto"
+    }
+  ],
+  "notes": [
+    "Priorizar performance: usar lazy loading para charts",
+    "Diseño mobile-first según cliente",
+    "Colores del theme: azul primario #3B82F6, gris neutro #6B7280",
+    "API endpoint: https://api.example.com/analytics"
+  ],
+  "metadata": {
+    "client": "Startup TechCo",
+    "deadline": "2026-05-15",
+    "priority": "high",
+    "budget_tokens": 25000,
+    "used_tokens": 1202,
+    "remaining_tokens": 23798
+  }
+}

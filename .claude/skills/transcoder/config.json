@@ -1,0 +1,85 @@
+{
+  "name": "transcoder",
+  "version": "1.0.0",
+  "description": "Traductor inteligente de ideas humanas a prompts optimizados para agentes de código",
+  "author": "Elkin",
+  "language": "es",
+
+  "triggers": [
+    "nuevo proyecto",
+    "transcoder",
+    "/tc",
+    "traducir prompt",
+    "optimizar prompt"
+  ],
+
+  "mcp_servers": {
+    "transcoder-mcp": {
+      "command": "python",
+      "args": ["mcp-server/server.py"],
+      "env": {},
+      "enabled": true
+    }
+  },
+
+  "settings": {
+    "auto_optimize_prompts": true,
+    "show_token_estimates": true,
+    "compress_threshold": 400,
+    "default_agent": "claude-code",
+    "language": "es"
+  },
+
+  "templates_path": "templates/",
+
+  "supported_agents": [
+    {
+      "name": "claude-code",
+      "template": "claude-code.md",
+      "detection": [".claude/", "claude-code"],
+      "priority": 1
+    },
+    {
+      "name": "cursor",
+      "template": "cursor.md",
+      "detection": [".cursorrules", "cursor.config"],
+      "priority": 2
+    },
+    {
+      "name": "opencode",
+      "template": "opencode.md",
+      "detection": [".github/copilot", "github-copilot", "opencode"],
+      "priority": 3
+    },
+    {
+      "name": "gemini",
+      "template": "gemini.md",
+      "detection": ["gemini.config", "gemini"],
+      "priority": 4
+    },
+    {
+      "name": "continue",
+      "template": "universal.md",
+      "detection": [".continue/config.json"],
+      "priority": 5
+    },
+    {
+      "name": "windsurf",
+      "template": "universal.md",
+      "detection": [".windsurfrules"],
+      "priority": 6
+    },
+    {
+      "name": "universal",
+      "template": "universal.md",
+      "detection": ["*"],
+      "priority": 99
+    }
+  ],
+
+  "hooks": {
+    "on_project_init": "auto_generate_plan",
+    "on_step_complete": "suggest_next_step",
+    "on_prompt_generate": "estimate_tokens"
+  }
+}
